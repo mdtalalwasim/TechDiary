@@ -18,13 +18,146 @@
         <link href="css/mycss.css" rel="stylesheet" type="text/css"/>
         <!--font awesome css-->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <style>
+            .banner_background{
+               /*clip-path: polygon(50% 0%, 100% 0, 100% 35%, 100% 100%, 78% 95%, 50% 100%, 21% 94%, 0 100%, 0% 35%, 0 0);*/
+               /*clip-path: polygon(50% 0%, 100% 0, 100% 44%, 100% 70%, 100% 100%, 71% 96%, 0 100%, 0 66%, 0 28%, 0 0);*/
+               /*clip-path: polygon(50% 0%, 85% 0, 100% 0, 100% 100%, 80% 98%, 45% 100%, 20% 98%, 0 100%, 0 0, 18% 0);*/
+               clip-path: polygon(50% 0%, 79% 0, 100% 0, 100% 100%, 80% 96%, 51% 100%, 20% 97%, 0 100%, 0 0, 18% 0);
+               /*clip-path: polygon(50% 0%, 79% 0, 100% 0, 100% 100%, 80% 96%, 50% 81%, 20% 97%, 0 100%, 0 0, 18% 0);*/
+
+            
+            } 
+            
+        </style>
     </head>
     <body>
 
         <!--navbar-->
         <%@include file="navbar_simple.jsp" %>
-        
-        
+
+
+        <!--create banner-->
+        <!--container-fluid cover full page. and container will leave space from left, and right.-->
+        <div class="container-fluid p-0 m-0"> 
+            <div class="jumbotron bg-info text-white banner_background ">
+                <div class="container">
+
+                    <h3 class="display-4">Welcome to Tech Diary,</h3>
+                    <p>Hey guys, welcome to the world of technology, this is the most popular technology related diary.
+                        Hey guys, welcome to the world of technology, this is the most popular technology related diary.
+                        Hey guys, welcome to the world of technology, this is the most popular technology related diary.
+                        Hey guys, welcome to the world of technology, this is the most popular technology related diary.
+                    </p>
+
+                    <p>Hey guys, welcome to the world of technology, this is the most popular technology related diary.
+                        Hey guys, welcome to the world of technology, this is the most popular technology related diary.</p>
+
+                    <button class="btn btn-outline-light"><span class="fa fa-bell-o"></span> It's Free</button>
+                    <a href="login_page.jsp" class="btn btn-outline-light"><span class="fa fa-user-circle-o fa-spin"></span> Login</a>
+
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="container">
+            <div class="row mb-2">
+                <div class="col-md-4">
+
+                    <div class="card">
+                        <!--<img class="card-img-top" src="..." alt="Card image cap">-->
+                        <div class="card-body">
+                            <h5 class="card-title">Java Programming</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a href="#" class="btn my-primary-background text-white">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+
+                    <div class="card">
+                        <!--<img class="card-img-top" src="..." alt="Card image cap">-->
+                        <div class="card-body">
+                            <h5 class="card-title">Python</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a href="#" class="btn my-primary-background text-white">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+
+                    <div class="card">
+                        <!--<img class="card-img-top" src="..." alt="Card image cap">-->
+                        <div class="card-body">
+                            <h5 class="card-title">ASP .Net</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a href="#" class="btn my-primary-background text-white">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                
+                
+                
+                
+                
+            </div>
+            
+            
+            
+            
+            
+            <div class="row mb-2">
+                <div class="col-md-4">
+
+                    <div class="card">
+                        <!--<img class="card-img-top" src="..." alt="Card image cap">-->
+                        <div class="card-body">
+                            <h5 class="card-title">Ruby on Rails</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a href="#" class="btn my-primary-background text-white">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+
+                    <div class="card">
+                        <!--<img class="card-img-top" src="..." alt="Card image cap">-->
+                        <div class="card-body">
+                            <h5 class="card-title">Golang</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a href="#" class="btn my-primary-background text-white">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+
+                    <div class="card">
+                        <!--<img class="card-img-top" src="..." alt="Card image cap">-->
+                        <div class="card-body">
+                            <h5 class="card-title">Android</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a href="#" class="btn my-primary-background text-white">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                
+                
+                
+                
+                
+            </div>
+
+
+
+
+
+
+              
+        </div>
+
+
 
 
 
