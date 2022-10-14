@@ -5,7 +5,7 @@ import java.sql.*;
 
 /**
  *
- * @author Wasim Ahmed
+ * @author Md. Talal Wasim
  */
 public class UserDAO {
 
@@ -44,6 +44,61 @@ public class UserDAO {
         }
         return f;
 
+    }
+    
+    //get user information -> email and password :
+    //method return type User.
+    public User getUserEmailPassword(String email, String password){
+    
+        User user = null;
+        
+        try {
+            
+            String query = "select * from user_registration_tbl where userEmail=? and userPassword=?";
+            PreparedStatement pstmt = con.prepareStatement(query);
+            
+            pstmt.setString(1, email);
+            pstmt.setString(2, password);
+            
+            ResultSet resultSet =pstmt.executeQuery();//executeQuery return resultSet...[return result(some data) of a user]
+            
+            if (resultSet.next()) {
+                //if any row available, then fetch the data of that row...
+                
+                //create new user object
+                user = new User();
+                
+                //fetch value one by one from database...
+                
+                //1st fetch name from db table...
+                String name = resultSet.getString("userName"); //userName is the name of colum in db.
+                //set the name into user object.
+                user.setUserName(name);
+                //another way -> fetch data in a Single Line...
+                //or in one line we can write it as below...
+                //user.setUserName(resultSet.getString("userName"));
+                
+                user.setUserId(resultSet.getInt("userId")); //"userId", "userEmail"...db cols...
+                user.setUserEmail(resultSet.getString("userEmail"));
+                user.setUserPassword(resultSet.getString("userPassword"));
+                user.setUserGender(resultSet.getString("userGender"));
+                user.setUserAbout(resultSet.getString("userAbout"));
+                user.setDateTime(resultSet.getTimestamp("registrationDate"));
+                user.setUserProfile(resultSet.getString("userProfile"));
+                
+                
+                
+            }
+            
+                    
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        
+        
+        
+        return user; //return that specific user's object
     }
 
 }

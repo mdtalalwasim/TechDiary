@@ -16,8 +16,8 @@ public class User {
     private String userPassword;
     private String userGender;
     private String userAbout;
-    //no need to create Timestamp because it will take value by default using : now() 
-    //private Timestamp dateTime;
+    private Timestamp dateTime;
+    private String userProfile;
 
 //    public User(int userId, String userName, String userEmail, String userPassword, String userGender, String userAbout, Timestamp dateTime) {
     public User(int userId, String userName, String userEmail, String userPassword, String userGender, String userAbout) {
@@ -94,11 +94,21 @@ public class User {
         this.userAbout = userAbout;
     }
 
-//    public Timestamp getDateTime() {
-//        return dateTime;
-//    }
-//
-//    public void setDateTime(Timestamp dateTime) {
-//        this.dateTime = dateTime;
-//    }
+    public Timestamp getDateTime() {
+        return dateTime;
+    }
+
+    public void setDateTime(Timestamp dateTime) {
+        this.dateTime = dateTime;
+    }
+
+    public String getUserProfile() {
+        return userProfile;
+    }
+
+    public void setUserProfile(String userProfile) {
+        this.userProfile = userProfile;
+    }
+    
+    
 }
