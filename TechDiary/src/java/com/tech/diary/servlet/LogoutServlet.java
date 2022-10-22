@@ -1,22 +1,23 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
+ */
 package com.tech.diary.servlet;
 
-import com.tech.diary.dao.UserDAO;
 import com.tech.diary.data.model.Message;
-import com.tech.diary.utility.helper.ConnectionProvider;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import com.tech.diary.data.model.User;
 import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author Md. Talal Wasim
  */
-public class LoginServlet extends HttpServlet {
+public class LogoutServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,55 +36,29 @@ public class LoginServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet LoginServlet</title>");
+            out.println("<title>Servlet LogoutServlet</title>");            
             out.println("</head>");
             out.println("<body>");
-            //out.println("<h1>Servlet LoginServlet at " + request.getContextPath() + "</h1>");
-
-            //code for Login Module...
-            //fetch user name and Password from login page user request
-            String uEmail = request.getParameter("email"); //here "email" and "password" are login page form field name
-            String uPassword = request.getParameter("password");
-
-            //now check the above email and password has already in DB or Not!
-            //this will tell us UserDAO class getUserEmailPassword(email, password) method... 
-            //if user is new it will return info about user, if user exist it will return null
-            //user dao need DB Connection
-            UserDAO uDAO = new UserDAO(ConnectionProvider.getConnection());
-
-            //getUserEmailPassword(uEmail, uPassword) return value is "User" Class type:
-            User user = uDAO.getUserEmailPassword(uEmail, uPassword);
-
-            //
-            if (user == null) {
-                //means user pass or email is wrong!
-                //login error msg showing...
-
-//                out.println("Invalid Username or Password!!!");
-                //create Message Class object
-                Message msgObj = new Message("Invalid Data! Please try again", "error", "alert-danger");
-                
-                //get session...
-                HttpSession session = request.getSession();
-                //set msgObj or message into session.
-                session.setAttribute("msg", msgObj); //key, value pair...
-                
-                
-                response.sendRedirect("login_page.jsp");
-
-            } else {
-
-                //login success...
-                //now, store this logged user into a Session.
-                //this session will exist till user logged in.[till closed browser / Logout user by own]
-                //getting session object
-                HttpSession sessionObj = request.getSession();
-
-                sessionObj.setAttribute("currentUser", user);
-                response.sendRedirect("user_profile.jsp");
-
-            }
-
+            //out.println("<h1>Servlet LogoutServlet at " + request.getContextPath() + "</h1>");
+            
+            //Logout means... we need to remove current user value from session.
+            
+            //in servlet we always need to get session but in JSP we can directly use session.
+            HttpSession session = request.getSession();
+            
+            //just remove "currentUser" for logout.
+            session.removeAttribute("currentUser");
+            
+            //show message after successfully logout.
+            Message msgObj = new Message("Logout Successfully", "success", "alert-success");
+            
+            //set msg to session and this msg will go to login page to show the message.
+            session.setAttribute("msg", msgObj);
+            
+            //after logout redirect to login page.
+            response.sendRedirect("login_page.jsp");
+            
+            
             out.println("</body>");
             out.println("</html>");
         }

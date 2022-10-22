@@ -74,10 +74,11 @@ public class UserDAO {
                 String name = resultSet.getString("userName"); //userName is the name of colum in db.
                 //set the name into user object.
                 user.setUserName(name);
+                
+
                 //another way -> fetch data in a Single Line...
                 //or in one line we can write it as below...
                 //user.setUserName(resultSet.getString("userName"));
-                
                 user.setUserId(resultSet.getInt("userId")); //"userId", "userEmail"...db cols...
                 user.setUserEmail(resultSet.getString("userEmail"));
                 user.setUserPassword(resultSet.getString("userPassword"));

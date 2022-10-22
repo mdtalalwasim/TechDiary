@@ -4,6 +4,7 @@
     Author     : Md. Talal Wasim
 --%>
 
+<%@page import="com.tech.diary.data.model.Message"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -19,18 +20,18 @@
 
         <style>
             .banner_background{
-               /*clip-path: polygon(50% 0%, 100% 0, 100% 35%, 100% 100%, 78% 95%, 50% 100%, 21% 94%, 0 100%, 0% 35%, 0 0);*/
-               /*clip-path: polygon(50% 0%, 100% 0, 100% 44%, 100% 70%, 100% 100%, 71% 96%, 0 100%, 0 66%, 0 28%, 0 0);*/
-               /*clip-path: polygon(50% 0%, 85% 0, 100% 0, 100% 100%, 80% 98%, 45% 100%, 20% 98%, 0 100%, 0 0, 18% 0);*/
-               clip-path: polygon(50% 0%, 79% 0, 100% 0, 100% 100%, 80% 96%, 51% 100%, 20% 97%, 0 100%, 0 0, 18% 0);
-               /*clip-path: polygon(50% 0%, 79% 0, 100% 0, 100% 100%, 80% 96%, 50% 81%, 20% 97%, 0 100%, 0 0, 18% 0);*/
+                /*clip-path: polygon(50% 0%, 100% 0, 100% 35%, 100% 100%, 78% 95%, 50% 100%, 21% 94%, 0 100%, 0% 35%, 0 0);*/
+                /*clip-path: polygon(50% 0%, 100% 0, 100% 44%, 100% 70%, 100% 100%, 71% 96%, 0 100%, 0 66%, 0 28%, 0 0);*/
+                /*clip-path: polygon(50% 0%, 85% 0, 100% 0, 100% 100%, 80% 98%, 45% 100%, 20% 98%, 0 100%, 0 0, 18% 0);*/
+                clip-path: polygon(50% 0%, 79% 0, 100% 0, 100% 100%, 80% 96%, 51% 100%, 20% 97%, 0 100%, 0 0, 18% 0);
+                /*clip-path: polygon(50% 0%, 79% 0, 100% 0, 100% 100%, 80% 96%, 50% 81%, 20% 97%, 0 100%, 0 0, 18% 0);*/
 
-            
-            } 
-            
+
+            }
+
         </style>
-        
-        
+
+
     </head>
     <body>
         <!--navbar-->
@@ -43,14 +44,42 @@
                 <div class="row">
                     <div class="col-md-4 offset-md-4">
                         <div class="card">
-                            
+
                             <div class="card-header text-center my-primary-background text-white">
                                 <!--<br>-->
                                 <span class="fa fa-group fa-2x "></span>
                                 <br>
                                 <p>Login here</p>
-                            
+
                             </div>
+
+                            <%
+                                //part of java code... so use  scriptlet tag 
+                                Message message = (Message) session.getAttribute("msg");
+
+                                if (message != null) {
+                            %>
+
+                            <!--HTML Code-->
+                            <!--showing error login msg-->
+
+                            <div class="alert <%= message.getCssClass() %>" role="alert">
+                                <%= message.getContent() %>
+                            </div>
+
+                            <!--showing error login msg-->
+
+                            <%
+                                //this is part of java code...
+                                //need to remove msg from session...for msg not showing again and again. just showing msg for one time.
+                                //after page refresh(session end) msg will disappear again.
+                                session.removeAttribute("msg");
+                                }
+
+
+                            %>
+
+
                             <div class="card-body">
                                 <!-- start login form-->
                                 <form action="LoginServlet" method="POST">
@@ -63,12 +92,12 @@
                                         <label for="exampleInputPassword1">Password</label>
                                         <input name="password" type="password" required class="form-control" id="exampleInputPassword1" placeholder="Password">
                                     </div>
-<!--                                    <div class="form-check">
-                                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                        <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                                    </div>-->
+                                    <!--                                    <div class="form-check">
+                                                                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                                                            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                                                                        </div>-->
                                     <button type="submit" class="btn my-primary-background text-white mt-2">Submit</button>
-                                    
+
                                 </form>
                                 <!-- end login form-->
                             </div>
