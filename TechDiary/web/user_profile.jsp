@@ -38,15 +38,13 @@
         <style>
             .banner_background{
                 clip-path: polygon(50% 0%, 79% 0, 100% 0, 100% 100%, 80% 96%, 51% 100%, 20% 97%, 0 100%, 0 0, 18% 0);
-                
+
             }
 
         </style>
 
     </head>
     <body>
-
-        <!--navbar-->
 
         <!--start navbar -->
 
@@ -81,51 +79,93 @@
                         <a class="nav-link" href="#"><span class="fa fa-address-book-o"></span> Contact</a>
                     </li>
 
-                    
+
 
                 </ul>
-                
+
                 <ul class="navbar-nav mr-right">
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><span class="fa fa-user-circle"></span> <%= user.getUserName() %></a>
+                        <a class="nav-link" href="#!" data-toggle="modal" data-target="#userProfile-modal"><span class="fa fa-user-circle"></span> <%= user.getUserName()%></a>
                     </li>
-                    
+
                     <li class="nav-item">
                         <a class="nav-link" href="LogoutServlet"><span class="fa fa-user-circle-o "></span> Logout</a>
                     </li>
                 </ul>
-                
+
             </div>
         </nav>
-
-
-
-        <!--end navbar-->
-        
-
 
         <!--end of navbar-->
 
 
+        <!--user profile modal / user profile info box-->
+
+        <!-- Modal -->
+        <div class="modal fade" id="userProfile-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header my-primary-background text-white">
+                        <h5 class="modal-title" id="exampleModalLabel">My Profile</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+
+                        <div class="container text-center">
+                            <img src="pics/<%= user.getUserProfile()%>" class="img-fluid" style="border-radius: 50%" height="150px" width="150px"/>
+                            <h5 class="modal-title" id="exampleModalLabel"><%= user.getUserName()%></h5>
+
+                            <!--User Details-->
+                            <table class="table">
+
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">ID :</th>
+                                        <td><%= user.getUserId()%></td>
+
+
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Email :</th>
+                                        <td><%= user.getUserEmail()%></td>
+
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Gender:</th>
+                                        <td><%= user.getUserGender()%></td>
+
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">About :</th>
+                                        <td><%= user.getUserAbout()%></td>
+
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Registration Date :</th>
+                                        <td><%= user.getDateTime()%></td>
+
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <!--End of User Details-->
+
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">EDIT</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
 
 
-
-        <%= user.getUserName()%>
-        <br>
-        <%= user.getUserEmail()%>
-        <br>
-        <%= user.getUserAbout()%>
-        <br>
-        <%= user.getUserProfile()%>
-        <br>
-        <%= user.getDateTime()%>
-
-
-
-
-
-
+        <!--End of user profile modal / user profile info box-->
 
 
 
