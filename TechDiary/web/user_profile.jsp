@@ -118,46 +118,97 @@
                             <h5 class="modal-title" id="exampleModalLabel"><%= user.getUserName()%></h5>
 
                             <!--User Details-->
-                            <table class="table">
+                            <div id="profileDetails">
+                                <table class="table">
 
-                                <tbody>
-                                    <tr>
-                                        <th scope="row">ID :</th>
-                                        <td><%= user.getUserId()%></td>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">ID :</th>
+                                            <td><%= user.getUserId()%></td>
 
 
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Email :</th>
-                                        <td><%= user.getUserEmail()%></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Email :</th>
+                                            <td><%= user.getUserEmail()%></td>
 
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Gender:</th>
-                                        <td><%= user.getUserGender()%></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Gender:</th>
+                                            <td><%= user.getUserGender()%></td>
 
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">About :</th>
-                                        <td><%= user.getUserAbout()%></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">About :</th>
+                                            <td><%= user.getUserAbout()%></td>
 
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Registration Date :</th>
-                                        <td><%= user.getDateTime()%></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Registration Date :</th>
+                                            <td><%= user.getDateTime()%></td>
 
-                                    </tr>
-                                </tbody>
-                            </table>
-
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                             <!--End of User Details-->
+
+                            <!--User Profile Edit section-->
+                            <div id="profileEdit" style="display:none;">
+                                <h3 class="mt-2">Edit Your Profile Information</h3>
+
+                                <form action="UserProfileEditServlet" method="POST">
+                                    <table class="table">
+                                        <tr>
+                                            <td>ID :</td>
+                                            <td><%= user.getUserId()%></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Email :</td>
+                                            <td><input type="email" name="user_email" value="<%= user.getUserEmail()%>" class="form-control"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Name :</td>
+                                            <td><input type="text" name="user_name" value="<%= user.getUserName()%>" class="form-control"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Password :</td>
+                                            <td><input type="text" name="user_password" value="<%= user.getUserPassword()%>" class="form-control"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Gender :</td>
+                                            <td><%= user.getUserGender().toUpperCase()%></td>
+                                        </tr>
+                                        <tr>
+                                            <td>About :</td>
+                                            <td><textarea name="user_about" class="form-control"><%= user.getUserAbout()%></textarea> </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Change Photo:</td>
+                                            <td><input type="file" name="profileImage" class="form-control" ></td>
+                                        </tr>
+
+                                    </table>
+
+                                        <div class="container">
+                                            <button type="submit" class="btn btn-outline-primary">Save</button>
+
+                                        </div>
+
+                                </form>
+
+
+
+                            </div>
+
+                            <!--End of User Profile Edit section-->
 
                         </div>
 
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">EDIT</button>
+                        <button id="edit-userProfile-btn" type="button" class="btn btn-primary">EDIT</button>
                     </div>
                 </div>
             </div>
@@ -179,6 +230,32 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
         <script src="js/myjs.js" type="text/javascript"></script>
 
+        <!--script for user profile section edit button toggle-->
+        <script>
+            $(document).ready(function () {
+
+                let editStatusOfUserProfile = false;//by default we assumet it false.
+
+                //toggle code for user profile edit
+                $("#edit-userProfile-btn").click(function () {
+//                   alert("Edit button Clicked!");
+                    if (editStatusOfUserProfile == false) {
+                        $("#profileDetails").hide();
+                        $("#profileEdit").show();
+                        editStatusOfUserProfile = true;
+                        $(this).text("Back");
+                    } else {
+                        $("#profileDetails").show();
+                        $("#profileEdit").hide();
+                        editStatusOfUserProfile = false;
+                        $(this).text("EDIT");
+                    }
+
+                });
+                //end of toggle code for user profile edit
+            });
+        </script>
+        <!--end ofscript for user profile section edit button toggle-->
 
         <!-- Link javaScript Section-->
 
