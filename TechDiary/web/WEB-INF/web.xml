@@ -12,6 +12,10 @@
         <servlet-name>LogoutServlet</servlet-name>
         <servlet-class>com.tech.diary.servlet.LogoutServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>UserProfileEditServlet</servlet-name>
+        <servlet-class>com.tech.diary.servlet.UserProfileEditServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>UserRegisterServlet</servlet-name>
         <url-pattern>/UserRegisterServlet</url-pattern>
@@ -23,6 +27,10 @@
     <servlet-mapping>
         <servlet-name>LogoutServlet</servlet-name>
         <url-pattern>/LogoutServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UserProfileEditServlet</servlet-name>
+        <url-pattern>/UserProfileEditServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

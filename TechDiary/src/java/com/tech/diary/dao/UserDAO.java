@@ -102,4 +102,29 @@ public class UserDAO {
         return user; //return that specific user's object
     }
 
+    
+    public boolean updateUser(User user){
+        
+        boolean f = false;
+        try {
+            
+            String query = "update user_registration_tbl set userName=?, userEmail=?, userPassword=?, userGender=?, userAbout=?, userProfile=? where userId=?";
+            PreparedStatement pstmt = con.prepareStatement(query);
+            
+            pstmt.setString(1, user.getUserName());
+            pstmt.setString(2, user.getUserEmail());
+            pstmt.setString(3, user.getUserPassword());
+            pstmt.setString(4, user.getUserGender());
+            pstmt.setString(5, user.getUserAbout());
+            pstmt.setString(6, user.getUserProfile());
+            pstmt.setInt(7, user.getUserId());
+            
+            pstmt.executeUpdate();
+            f= true;//f becomes true when query run successfully and update all data.
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return f;
+    }
 }

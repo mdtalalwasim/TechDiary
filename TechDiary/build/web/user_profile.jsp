@@ -157,7 +157,7 @@
                             <div id="profileEdit" style="display:none;">
                                 <h3 class="mt-2">Edit Your Profile Information</h3>
 
-                                <form action="UserProfileEditServlet" method="POST">
+                                <form action="UserProfileEditServlet" method="POST" enctype="multipart/form-data">
                                     <table class="table">
                                         <tr>
                                             <td>ID :</td>
@@ -185,7 +185,7 @@
                                         </tr>
                                         <tr>
                                             <td>Change Photo:</td>
-                                            <td><input type="file" name="profileImage" class="form-control" ></td>
+                                            <td><input type="file" name="user_profileImage" class="form-control" ></td>
                                         </tr>
 
                                     </table>
