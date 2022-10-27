@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Wasim Ahmed
+ * @author Md. Talal Wasim
  */
 @MultipartConfig // this annotation is for informing to the 'servelt' that be ready to receive complex data which is coming throug our submitted form.
 //inform to servlet -> this form has complex or all types of data like image, long data, file, text, and etc... so get ready to receive
@@ -49,7 +49,7 @@ public class UserRegisterServlet extends HttpServlet {
                 out.println("Please agree terms and condition.");
 
             } else {
-
+                //fetch all data from the UserRegister Form which is in registration_page.
                 String name = request.getParameter("user_name");
                 String email = request.getParameter("user_email");
                 String password = request.getParameter("user_password");
@@ -73,6 +73,7 @@ public class UserRegisterServlet extends HttpServlet {
                     //saveUser return 'true'     
                     out.println("done");
                 } else {
+                    //if saveUser return value false
                     out.println("error");
                 }
 

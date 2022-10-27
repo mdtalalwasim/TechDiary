@@ -53,6 +53,7 @@
 
                             </div>
 
+                            <!--Starting of Message-->
                             <%
                                 //part of java code... so use  scriptlet tag 
                                 Message message = (Message) session.getAttribute("msg");
@@ -63,22 +64,22 @@
                             <!--HTML Code-->
                             <!--showing error login msg-->
 
-                            <div class="alert <%= message.getCssClass() %>" role="alert">
-                                <%= message.getContent() %>
+                            <div class="alert <%= message.getCssClass()%>" role="alert">
+                                <%= message.getContent()%>
                             </div>
 
                             <!--showing error login msg-->
 
                             <%
-                                //this is part of java code...
-                                //need to remove msg from session...for msg not showing again and again. just showing msg for one time.
-                                //after page refresh(session end) msg will disappear again.
-                                session.removeAttribute("msg");
+                                    //this is part of java code...
+                                    //need to remove msg from session...for msg not showing again and again. just showing msg for one time.
+                                    //after page refresh(session end) msg will disappear again.
+                                    session.removeAttribute("msg");
                                 }
 
 
                             %>
-
+                            <!--End of Message-->
 
                             <div class="card-body">
                                 <!-- start login form-->

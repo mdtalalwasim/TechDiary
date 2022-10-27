@@ -4,6 +4,7 @@
     Author     : Md. Talal Wasim
 --%>
 
+<%@page import="com.tech.diary.data.model.Message"%>
 <%@page import="com.tech.diary.data.model.User"%>
 <%@page errorPage="error_page.jsp" %>
 <%
@@ -99,6 +100,36 @@
         <!--end of navbar-->
 
 
+        <!--Starting of Message-->
+        <%
+            //part of java code... so use  scriptlet tag 
+            Message message = (Message) session.getAttribute("msg");
+
+            if (message != null) {
+        %>
+
+        <!--HTML Code-->
+        <!--showing error login msg-->
+
+        <div class="alert <%= message.getCssClass()%>" role="alert">
+            <%= message.getContent()%>
+        </div>
+
+        <!--showing error login msg-->
+
+        <%
+                //this is part of java code...
+                //need to remove msg from session...for msg not showing again and again. just showing msg for one time.
+                //after page refresh(session end) msg will disappear again.
+                session.removeAttribute("msg");
+            }
+
+
+        %>
+        <!--End of Message-->
+
+
+
         <!--user profile modal / user profile info box-->
 
         <!-- Modal -->
@@ -185,15 +216,15 @@
                                         </tr>
                                         <tr>
                                             <td>Change Photo:</td>
-                                            <td><input type="file" name="user_profileImage" class="form-control" ></td>
+                                            <td><input type="file" name="user_profileImage" class="form-control" required></td>
                                         </tr>
 
                                     </table>
 
-                                        <div class="container">
-                                            <button type="submit" class="btn btn-outline-primary">Save</button>
+                                    <div class="container">
+                                        <button type="submit" class="btn btn-outline-primary">Save</button>
 
-                                        </div>
+                                    </div>
 
                                 </form>
 

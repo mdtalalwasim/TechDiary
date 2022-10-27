@@ -52,7 +52,7 @@
 
                                 <div class="form-group">
                                     <label for="user_name">User Name</label>
-                                    <input type="text" name="user_name" class="form-control" id="user_name" aria-describedby="emailHelp" placeholder="Enter email">
+                                    <input type="text" name="user_name" class="form-control" id="user_name" aria-describedby="emailHelp" placeholder="Enter name">
 
                                 </div>
 
@@ -139,7 +139,7 @@
                     // when form will submit call this funtion...and execute the below code...
                     event.preventDefault();//the submitted data of 'registraion_page' through form will stop going to the servlet page
 
-                    //from here all the data submitted to Servlet... 
+                    //from here, all the data submitted to Servlet... 
                     let form = new FormData(this); //(this means my-registration-form) all data of form store in 'form' variable.
 
 

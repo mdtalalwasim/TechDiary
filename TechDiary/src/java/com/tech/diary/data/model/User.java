@@ -9,7 +9,7 @@ import java.sql.Timestamp;
  */
 public class User {
 
-    //Constructor
+    
     private int userId;
     private String userName;
     private String userEmail;
