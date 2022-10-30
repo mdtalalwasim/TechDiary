@@ -4,6 +4,10 @@
     Author     : Md. Talal Wasim
 --%>
 
+<%@page import="com.tech.diary.data.model.Category"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.tech.diary.utility.helper.ConnectionProvider"%>
+<%@page import="com.tech.diary.dao.PostDAO"%>
 <%@page import="com.tech.diary.data.model.Message"%>
 <%@page import="com.tech.diary.data.model.User"%>
 <%@page errorPage="error_page.jsp" %>
@@ -78,6 +82,9 @@
 
                     <li class="nav-item">
                         <a class="nav-link" href="#"><span class="fa fa-address-book-o"></span> Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-toggle="modal" data-target="#add-post-model"><span class="fa fa-vcard-o"></span> Create Post</a>
                     </li>
 
 
@@ -248,6 +255,72 @@
 
 
         <!--End of user profile modal / user profile info box-->
+
+
+        <!--add Post Modal -->
+
+        <!-- Modal -->
+        <div class="modal fade" id="add-post-model" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Create Post</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+
+                        <form action="AddPostServlet" method="post">
+                            <div class="form-group">
+                                <select class="form-control">
+                                    <option selected disabled>---Select Category---</option>
+                                    
+                                    <%
+                                        PostDAO postdao = new PostDAO(ConnectionProvider.getConnection());
+                                        ArrayList<Category> list = postdao.getAllCategories();
+
+                                        for (Category c : list) 
+                                        {
+
+                                    %>
+                                        <option><%= c.getCategoriesName()%> </option>
+                                        
+                                    <%                                        
+                                        }
+                                    %>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <input type="text" name="post_title" placeholder="Enter post Title" class="form-control" />
+                            </div>
+
+                            <div class="form-group">
+                                <textarea class="form-control" name="post_content" rows="5" cols="10" placeholder="Enter your content" ></textarea>
+                            </div>
+                            <div class="form-group">
+                                <textarea class="form-control" name="post_code" rows="5" cols="10" placeholder="Enter your code (if any)" ></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Select photo for your post</label>
+                                <input type="file" class="form-control" name="post_pic" />
+                            </div>
+
+                        </form>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!--End of add Post Modal -->
 
 
 
