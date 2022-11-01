@@ -136,6 +136,56 @@
         <!--End of Message-->
 
 
+        <!-- main body of this page -->
+
+        <main>
+            <div class="container">
+                <div class="row mt-4">
+                    <!--first col-->
+                    <div class="col-md-4">
+                        <!--categories-->
+
+                        <div class="list-group">
+                            <!--get all categories list form database-->
+                            <a href="#" class="list-group-item list-group-item-action active">All Post</a>
+                            <%                                
+                                PostDAO objPostDAO = new PostDAO(ConnectionProvider.getConnection());
+                                ArrayList<Category> catList = objPostDAO.getAllCategories();
+                                
+                                for (Category c : catList) {
+ 
+                            %>
+                            <a href="#" class="list-group-item list-group-item-action"><%= c.getCategoriesName() %></a>
+
+                            <%
+                                }
+                            %>
+
+                            
+                        </div> 
+
+
+                    </div>
+
+                    <!--2nd col-->
+                    <div class="col-md-8">
+                        <!--post-->
+
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </main>
+
+        <!-- end main body of this page -->
+
+
+
+
 
         <!--user profile modal / user profile info box-->
 
