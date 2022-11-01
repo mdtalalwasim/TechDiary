@@ -16,6 +16,10 @@
         <servlet-name>UserProfileEditServlet</servlet-name>
         <servlet-class>com.tech.diary.servlet.UserProfileEditServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CreatePostServlet</servlet-name>
+        <servlet-class>com.tech.diary.servlet.CreatePostServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>UserRegisterServlet</servlet-name>
         <url-pattern>/UserRegisterServlet</url-pattern>
@@ -31,6 +35,10 @@
     <servlet-mapping>
         <servlet-name>UserProfileEditServlet</servlet-name>
         <url-pattern>/UserProfileEditServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CreatePostServlet</servlet-name>
+        <url-pattern>/CreatePostServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

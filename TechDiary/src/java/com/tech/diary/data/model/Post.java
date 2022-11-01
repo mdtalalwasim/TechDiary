@@ -16,11 +16,12 @@ public class Post {
     private String postPic;
     private Timestamp postDate;
     private int catId;
+    private int userId;
 
     public Post() {
     }
 
-    public Post(int postId, String postTitle, String postContent, String postCode, String postPic, Timestamp postDate, int catId) {
+    public Post(int postId, String postTitle, String postContent, String postCode, String postPic, Timestamp postDate, int catId, int userId) {
         this.postId = postId;
         this.postTitle = postTitle;
         this.postContent = postContent;
@@ -28,15 +29,17 @@ public class Post {
         this.postPic = postPic;
         this.postDate = postDate;
         this.catId = catId;
+        this.userId = userId;
     }
 
-    public Post(String postTitle, String postContent, String postCode, String postPic, Timestamp postDate, int catId) {
+    public Post(String postTitle, String postContent, String postCode, String postPic, Timestamp postDate, int catId, int userId) {
         this.postTitle = postTitle;
         this.postContent = postContent;
         this.postCode = postCode;
         this.postPic = postPic;
         this.postDate = postDate;
         this.catId = catId;
+        this.userId = userId;
     }
     
     
@@ -97,6 +100,16 @@ public class Post {
     public void setCatId(int catId) {
         this.catId = catId;
     }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+    
+    
     
     
     

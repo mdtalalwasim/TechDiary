@@ -257,13 +257,13 @@
         <!--End of user profile modal / user profile info box-->
 
 
-        <!--add Post Modal -->
+        <!--add Create Post Modal -->
 
         <!-- Modal -->
         <div class="modal fade" id="add-post-model" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
-                    <div class="modal-header">
+                    <div class="modal-header my-primary-background text-white">
                         <h5 class="modal-title" id="exampleModalLabel">Create Post</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
@@ -271,22 +271,21 @@
                     </div>
                     <div class="modal-body">
 
-                        <form action="AddPostServlet" method="post">
+                        <form id="create-post-form-id" action="CreatePostServlet" method="post">
                             <div class="form-group">
-                                <select class="form-control">
+                                <select class="form-control" name="catId">
                                     <option selected disabled>---Select Category---</option>
-                                    
+
                                     <%
                                         PostDAO postdao = new PostDAO(ConnectionProvider.getConnection());
                                         ArrayList<Category> list = postdao.getAllCategories();
 
-                                        for (Category c : list) 
-                                        {
+                                        for (Category c : list) {
 
                                     %>
-                                        <option><%= c.getCategoriesName()%> </option>
-                                        
-                                    <%                                        
+                                    <option value="<%= c.getCategoriesId()%>"><%= c.getCategoriesName()%> </option>
+
+                                    <%
                                         }
                                     %>
                                 </select>
@@ -308,13 +307,15 @@
                                 <input type="file" class="form-control" name="post_pic" />
                             </div>
 
+                            <div class="container text-center">
+                                <button type="submit" class="btn btn-outline-info">Post</button>
+                            </div>
+
+
                         </form>
 
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
-                    </div>
+
                 </div>
             </div>
         </div>
@@ -332,6 +333,11 @@
         crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+        <!--for sweet alert-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+        <!--end for sweet aleart-->
+
         <script src="js/myjs.js" type="text/javascript"></script>
 
         <!--script for user profile section edit button toggle-->
@@ -362,6 +368,57 @@
         <!--end ofscript for user profile section edit button toggle-->
 
         <!-- Link javaScript Section-->
+
+        <!--create post js code-->
+        <script>
+            $(document).ready(function (e) {
+
+                //alert("loaded create post.....");
+                $("#create-post-form-id").on("submit", function (event) {
+                    //the below code is run when form is submited
+
+                    //normal behaviour of form 'means Synchronous way to submit" 
+                    //+ other normal behavior is stopped for this line.
+                    event.preventDefault();
+                    console.log("Post button clicked...");
+
+                    let form = new FormData(this);
+
+                    //now requesting to server...
+                    $.ajax({
+
+                        url: "CreatePostServlet",
+                        type: 'POST',
+                        data: form,
+
+                        success: function (data, textStatus, jqXHR) {
+                            //success...
+                            console.log(data);
+                            if (data.trim() == 'done') {
+                                swal("Good job!", "Save Successfully", "success");
+                            } else {
+                                swal("Error!", "Something went wrong, try again!", "error");
+                            }
+
+                        },
+                        error: function (jqXHR, textStatus, errorThrown) {
+                            //error...
+                            swal("Error!", "Something went wrong, try again!", "error");
+
+
+                        },
+                        processData: false, //if form consist pic for sending to server, then this line must; 
+                        contentType: false//if form consist pic for sending to server, then this line must;
+
+                    });
+                });
+            });
+
+        </script>
+
+        <!--end of create post js code-->
+
+
 
     </body>
 </html>
