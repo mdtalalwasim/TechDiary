@@ -5,6 +5,7 @@ import com.tech.diary.data.model.Category;
 import com.tech.diary.data.model.Post;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -18,6 +19,7 @@ public class PostDAO {
         this.con = con;
     }
     
+    //get all Categories
     public ArrayList<Category> getAllCategories(){
         ArrayList<Category> listOfCategory = new ArrayList<>();
         
@@ -52,6 +54,7 @@ public class PostDAO {
         return listOfCategory; //return ArrayList 
     } 
     
+    //save create post in db
     public boolean saveCreatePost(Post postObj){
         
         boolean f=false;
@@ -77,5 +80,79 @@ public class PostDAO {
         
         
         return f;
+    }
+    
+    //get all post
+    public List<Post> getAllPosts(){
+        
+        List<Post> list = new ArrayList<>();
+        
+        //fetch all post
+        try {
+            String q = "select * from post_tbl";
+            PreparedStatement pstmt = this.con.prepareStatement(q);
+            ResultSet resultSet = pstmt.executeQuery();
+            
+            while (resultSet.next()) {
+                
+                int pId = resultSet.getInt("postId");
+                String pTitle = resultSet.getString("postTitle");
+                String pContent = resultSet.getString("postContent");
+                String pCode = resultSet.getString("postCode");
+                String pPic = resultSet.getString("postPic");
+                Timestamp pDate = resultSet.getTimestamp("postDate");
+                int categoryId = resultSet.getInt("catId");
+                int userId = resultSet.getInt("userId");
+                
+                Post objPost = new Post(pId, pTitle, pContent, pCode, pPic, pDate, categoryId, userId);
+                list.add(objPost); // add all post obj into list obj.
+                
+                
+            }
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        return list;
+    }
+    
+    public List<Post> getPostByCategoryId(int catId){
+        List<Post> list = new ArrayList<>();
+        
+        //get all post by categories id
+        //fetch all post
+        try {
+            String q = "select * from post_tbl where catId=?";
+            PreparedStatement pstmt = this.con.prepareStatement(q);
+            pstmt.setInt(1, catId);
+            ResultSet resultSet = pstmt.executeQuery();
+            
+            while (resultSet.next()) {
+                
+                int pId = resultSet.getInt("postId");
+                String pTitle = resultSet.getString("postTitle");
+                String pContent = resultSet.getString("postContent");
+                String pCode = resultSet.getString("postCode");
+                String pPic = resultSet.getString("postPic");
+                Timestamp pDate = resultSet.getTimestamp("postDate");
+                //int categoryId = resultSet.getInt("catId");
+                int userId = resultSet.getInt("userId");
+                
+                Post objPost = new Post(pId, pTitle, pContent, pCode, pPic, pDate, catId, userId);
+                list.add(objPost); // add all post obj into list obj.
+                
+                
+            }
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        
+        
+        
+        
+        return list;
     }
 }

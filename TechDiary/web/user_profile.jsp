@@ -143,7 +143,8 @@
                 <div class="row mt-4">
                     <!--first col-->
                     <div class="col-md-4">
-                        <!--categories-->
+                        <!--show categories in user profile main page-->
+                        
 
                         <div class="list-group">
                             <!--get all categories list form database-->
@@ -166,10 +167,22 @@
 
 
                     </div>
+                    <!--show categories in user profile main page-->
 
                     <!--2nd col-->
                     <div class="col-md-8">
-                        <!--post-->
+                        <!--show All post-->
+                        
+                        <div class="container text-center" id="loader">
+                            <i class="fa fa-refresh fa-3x fa-spin"></i>
+                            <h3 class="mt-2">loading...</h3>
+                            
+                        </div>
+                        
+                        <div class="container-fluid" id="load-all-post-container">
+                            <!--"load_all_posts.jsp" page contents will show here-->
+                        </div>
+                        
 
 
 
@@ -467,6 +480,26 @@
         </script>
 
         <!--end of create post js code-->
+        
+        
+        <!--load all post-->
+        <script>
+            $(document).ready(function (e){
+               //alert("loading all post"); 
+               $.ajax({
+                   url:"load_all_posts.jsp",
+                   success: function (data, textStatus, jqXHR) {
+                        console.log(data);
+                        $("#loader").hide();
+                        $("#load-all-post-container").html(data); 
+                        
+                    }
+            
+               });
+            });
+        </script>
+        
+        <!--end of load all post-->
 
 
 
