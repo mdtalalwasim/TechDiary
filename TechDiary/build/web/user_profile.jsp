@@ -143,20 +143,21 @@
                 <div class="row mt-4">
                     <!--first col-->
                     <div class="col-md-4">
+                        
                         <!--show categories in user profile main page-->
                         
-
                         <div class="list-group">
                             <!--get all categories list form database-->
-                            <a href="#" class="list-group-item list-group-item-action active">All Post</a>
-                            <%                                
+                            <a href="#" onclick="getPosts(0)" class="list-group-item list-group-item-action active">All Post</a>
+                            <%  
+                                //categories print/show in User Profile main dashboard or page
                                 PostDAO objPostDAO = new PostDAO(ConnectionProvider.getConnection());
                                 ArrayList<Category> catList = objPostDAO.getAllCategories();
                                 
                                 for (Category c : catList) {
  
                             %>
-                            <a href="#" class="list-group-item list-group-item-action"><%= c.getCategoriesName() %></a>
+                            <a href="#" onclick="getPosts(<%= c.getCategoriesId() %>)" class="list-group-item list-group-item-action"><%= c.getCategoriesName() %></a>
 
                             <%
                                 }
@@ -167,7 +168,7 @@
 
 
                     </div>
-                    <!--show categories in user profile main page-->
+                    <!-- End show categories in user profile main page-->
 
                     <!--2nd col-->
                     <div class="col-md-8">
@@ -195,9 +196,6 @@
         </main>
 
         <!-- end main body of this page -->
-
-
-
 
 
         <!--user profile modal / user profile info box-->
@@ -340,6 +338,7 @@
                                     <option selected disabled>---Select Category---</option>
 
                                     <%
+                                        //categories print/show in create post modal
                                         PostDAO postdao = new PostDAO(ConnectionProvider.getConnection());
                                         ArrayList<Category> list = postdao.getAllCategories();
 
@@ -484,18 +483,36 @@
         
         <!--load all post-->
         <script>
-            $(document).ready(function (e){
-               //alert("loading all post"); 
-               $.ajax({
+            function getPosts(categoryId){
+                
+                //show loader before ajax request, means when click on categories for showing post "loader is visible."
+                $("#loader").show();
+                $("#load-all-post-container").hide();
+                
+                
+                $.ajax({
                    url:"load_all_posts.jsp",
+                   data: {catId:categoryId}, //key:value -> here, catId go to server end. [this key -> "catId" will go to "load_all_posts.jsp" page]
+                   //if catId=0 then fetch all category Post, if catId>0 then fetch "catId"(#number) category post
                    success: function (data, textStatus, jqXHR) {
                         console.log(data);
                         $("#loader").hide();
-                        $("#load-all-post-container").html(data); 
+                        $("#load-all-post-container").show();
+                        $("#load-all-post-container").html(data);//show the post contailer and put all dynamic data also 
                         
                     }
             
                });
+                
+            }
+            
+            $(document).ready(function (e){
+               //alert("loading all post"); 
+               getPosts(0);//call getPost(); and pass '0' zero value by default.
+               //means, when user login their profile they can see all post
+               //after that if they click any category then we show them that specific category post only.
+               
+               
             });
         </script>
         

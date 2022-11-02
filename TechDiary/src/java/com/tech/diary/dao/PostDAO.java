@@ -89,7 +89,7 @@ public class PostDAO {
         
         //fetch all post
         try {
-            String q = "select * from post_tbl";
+            String q = "select * from post_tbl order by postId desc";
             PreparedStatement pstmt = this.con.prepareStatement(q);
             ResultSet resultSet = pstmt.executeQuery();
             
