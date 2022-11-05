@@ -20,15 +20,15 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <style>
             .banner_background{
-               /*clip-path: polygon(50% 0%, 100% 0, 100% 35%, 100% 100%, 78% 95%, 50% 100%, 21% 94%, 0 100%, 0% 35%, 0 0);*/
-               /*clip-path: polygon(50% 0%, 100% 0, 100% 44%, 100% 70%, 100% 100%, 71% 96%, 0 100%, 0 66%, 0 28%, 0 0);*/
-               /*clip-path: polygon(50% 0%, 85% 0, 100% 0, 100% 100%, 80% 98%, 45% 100%, 20% 98%, 0 100%, 0 0, 18% 0);*/
-               clip-path: polygon(50% 0%, 79% 0, 100% 0, 100% 100%, 80% 96%, 51% 100%, 20% 97%, 0 100%, 0 0, 18% 0);
-               /*clip-path: polygon(50% 0%, 79% 0, 100% 0, 100% 100%, 80% 96%, 50% 81%, 20% 97%, 0 100%, 0 0, 18% 0);*/
+                /*clip-path: polygon(50% 0%, 100% 0, 100% 35%, 100% 100%, 78% 95%, 50% 100%, 21% 94%, 0 100%, 0% 35%, 0 0);*/
+                /*clip-path: polygon(50% 0%, 100% 0, 100% 44%, 100% 70%, 100% 100%, 71% 96%, 0 100%, 0 66%, 0 28%, 0 0);*/
+                /*clip-path: polygon(50% 0%, 85% 0, 100% 0, 100% 100%, 80% 98%, 45% 100%, 20% 98%, 0 100%, 0 0, 18% 0);*/
+                clip-path: polygon(50% 0%, 79% 0, 100% 0, 100% 100%, 80% 96%, 51% 100%, 20% 97%, 0 100%, 0 0, 18% 0);
+                /*clip-path: polygon(50% 0%, 79% 0, 100% 0, 100% 100%, 80% 96%, 50% 81%, 20% 97%, 0 100%, 0 0, 18% 0);*/
 
-            
-            } 
-            
+
+            }
+
         </style>    
     </head>
     <body>
@@ -60,6 +60,7 @@
             </div>
 
         </div>
+        <!--end container-fluid cover full page. and container will leave space from left, and right.-->
 
 
         <div class="container">
@@ -97,17 +98,17 @@
                         </div>
                     </div>
                 </div>
-                
-                
-                
-                
-                
+
+
+
+
+
             </div>
-            
-            
-            
-            
-            
+
+
+
+
+
             <div class="row mb-2">
                 <div class="col-md-4">
 
@@ -142,11 +143,11 @@
                         </div>
                     </div>
                 </div>
-                
-                
-                
-                
-                
+
+
+
+
+
             </div>
 
 
@@ -154,8 +155,137 @@
 
 
 
-              
+
         </div>
+        
+        <!--<br>-->
+
+
+<!--         Footer 
+        <footer class="page-footer font-small indigo my-primary-background">
+
+             Footer Links 
+            <div class="container text-center text-md-left">
+
+                 Grid row 
+                <div class="row">
+
+                     Grid column 
+                    <div class="col-md-3 mx-auto">
+
+                         Links 
+                        <h5 class="font-weight-bold text-uppercase mt-3 mb-4 text-white">Links</h5>
+
+                        <ul class="list-unstyled">
+                            <li>
+                                <a href="#!" class="text-white">Very long link 1</a>
+                            </li>
+                            <li>
+                                <a href="#!" class="text-white">Very long link 2</a>
+                            </li>
+                            <li>
+                                <a href="#!" class="text-white">Very long link 3</a>
+                            </li>
+                            <li>
+                                <a href="#!" class="text-white">Very long link 4</a>
+                            </li>
+                        </ul>
+
+                    </div>
+                     Grid column 
+
+                    <hr class="clearfix w-100 d-md-none">
+
+                     Grid column 
+                    <div class="col-md-3 mx-auto">
+
+                         Links 
+                        <h5 class="font-weight-bold text-uppercase mt-3 mb-4 text-white">Links</h5>
+
+                        <ul class="list-unstyled">
+                            <li>
+                                <a href="#!" class="text-white">Link 1</a>
+                            </li>
+                            <li>
+                                <a href="#!" class="text-white">Link 2</a>
+                            </li>
+                            <li>
+                                <a href="#!" class="text-white">Link 3</a>
+                            </li>
+                            <li>
+                                <a href="#!" class="text-white">Link 4</a>
+                            </li>
+                        </ul>
+
+                    </div>
+                     Grid column 
+
+                    <hr class="clearfix w-100 d-md-none">
+
+                     Grid column 
+                    <div class="col-md-3 mx-auto">
+
+                         Links 
+                        <h5 class="font-weight-bold text-uppercase mt-3 mb-4 text-white">Links</h5>
+
+                        <ul class="list-unstyled ">
+                            <li>
+                                <a href="#!" class="text-white" >Link 1</a>
+                            </li>
+                            <li>
+                                <a href="#!" class="text-white">Link 2</a>
+                            </li>
+                            <li>
+                                <a href="#!" class="text-white">Link 3</a>
+                            </li>
+                            <li>
+                                <a href="#!" class="text-white">Link 4</a>
+                            </li>
+                        </ul>
+
+                    </div>
+                     Grid column 
+
+                    <hr class="clearfix w-100 d-md-none">
+
+                     Grid column 
+                    <div class="col-md-3 mx-auto">
+
+                         Links 
+                        <h5 class="font-weight-bold text-uppercase mt-3 mb-4 text-white">Links</h5>
+
+                        <ul class="list-unstyled">
+                            <li>
+                                <a href="#!" class="text-white">Link 1</a>
+                            </li>
+                            <li>
+                                <a href="#!" class="text-white">Link 2</a>
+                            </li>
+                            <li>
+                                <a href="#!" class="text-white">Link 3</a>
+                            </li>
+                            <li>
+                                <a href="#!" class="text-white">Link 4</a>
+                            </li>
+                        </ul>
+
+                    </div>
+                     Grid column 
+
+                </div>
+                 Grid row 
+
+            </div>
+             Footer Links 
+
+             Copyright 
+            <div class="footer-copyright text-center py-3 text-white">© 2022 Copyright:
+                <a href="https://github.com/mdtalalwasim" target="_blank" style="color: black"><strong> Md.Talal Wasim</strong></a>
+            </div>
+             Copyright 
+
+        </footer>
+         Footer -->
 
 
 

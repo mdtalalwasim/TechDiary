@@ -148,7 +148,10 @@
                         
                         <div class="list-group">
                             <!--get all categories list form database-->
-                            <a href="#" onclick="getPosts(0)" class="list-group-item list-group-item-action active">All Post</a>
+                            <a href="#" onclick="getPosts(0,this)" class="selectedActiveCategoryLinkColorBlue list-group-item list-group-item-action active">All Post</a> <!--[active] attribute in class="... active" means this is selected and selected category color will be blue, if we remove 'active' attribute from this line, then blue color selected will disappear-->
+                            <!-- getPosts(0,this) here this is the reference of which link/category or category Name you actually clicked [for keep tracking which link you clicked] -->
+                            
+                            <!-- to get "active" link in categories we declare a class="selectedActiveCategoryLinkColorBlue"  -->
                             <%  
                                 //categories print/show in User Profile main dashboard or page
                                 PostDAO objPostDAO = new PostDAO(ConnectionProvider.getConnection());
@@ -157,8 +160,8 @@
                                 for (Category c : catList) {
  
                             %>
-                            <a href="#" onclick="getPosts(<%= c.getCategoriesId() %>)" class="list-group-item list-group-item-action"><%= c.getCategoriesName() %></a>
-
+                            <a href="#" onclick="getPosts(<%= c.getCategoriesId() %>,this)" class="selectedActiveCategoryLinkColorBlue list-group-item list-group-item-action"><%= c.getCategoriesName() %></a>
+                            <!-- getPosts( ,this) here this is the reference of which link/category or category Name you actually clicked [for keep tracking which link you clicked] -->
                             <%
                                 }
                             %>
@@ -483,11 +486,13 @@
         
         <!--load all post-->
         <script>
-            function getPosts(categoryId){
+            function getPosts(categoryId, refVariableOFClickedLink){ //"refVariableOFClickedLink" this is reference or variable of which link you clicked or which link is active or selected[show in bule color].
                 
                 //show loader before ajax request, means when click on categories for showing post "loader is visible."
                 $("#loader").show();
                 $("#load-all-post-container").hide();
+                $(".selectedActiveCategoryLinkColorBlue").removeClass("active");//remove active link[selected category] from categories list or category name
+                //["active" / blue color selected link will remove when this line of code executed]
                 
                 
                 $.ajax({
@@ -499,17 +504,24 @@
                         $("#loader").hide();
                         $("#load-all-post-container").show();
                         $("#load-all-post-container").html(data);//show the post contailer and put all dynamic data also 
-                        
+                        $(refVariableOFClickedLink).addClass("active"); //put or add "active" class mark[which is blue color] in selected category or selected link
+                        //clicked link or selected link/category  reference is now in "rerefVariableOFClickedLink" variable
                     }
             
                });
                 
             }
             
+            
             $(document).ready(function (e){
+               
                //alert("loading all post"); 
-               getPosts(0);//call getPost(); and pass '0' zero value by default.
-               //means, when user login their profile they can see all post
+               //when document will ready this function will call automatically.
+               
+               let allPostSelectedLinkBlueColorRef = $(".selectedActiveCategoryLinkColorBlue")[0];  
+               getPosts(0, allPostSelectedLinkBlueColorRef);//call getPost(); and pass '0' zero value by default and 
+               //also pass the reference of selected active link which is -> "All Post" with blue color selected/active link .
+               // pass "0"/zero means, when user login their profile they can see all post by default
                //after that if they click any category then we show them that specific category post only.
                
                
