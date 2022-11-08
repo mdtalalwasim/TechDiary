@@ -7,6 +7,7 @@
 <%@page import="com.tech.diary.utility.helper.ConnectionProvider"%>
 <%@page import="java.sql.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
     <head>

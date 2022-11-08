@@ -32,8 +32,8 @@
     <body>
         <div class="container text-center">
             <img src="img/error.png" class="img-fluid" alt="error"/>
-            <h3 class="display-4">Sorry! Something went wrong!!!</h3>
-            <%= exception %> <!--for print the exception-->
+            <h3 class="display-5">Sorry! Something went wrong!!!</h3>
+            <%= exception %> <!--for print the exception--><br>
             <a href="index.jsp" class="btn my-primary-background text-white mt-2">Home</a>
         </div>
     </body>

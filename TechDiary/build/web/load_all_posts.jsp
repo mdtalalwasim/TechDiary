@@ -40,7 +40,13 @@
             <div class="card-body">
                 <b><%= p.getPostTitle()%></b>
                 <p><%= p.getPostContent()%></p>
-                <pre><code><%= p.getPostCode()%></code></pre>
+                
+
+            </div>
+            <div class="card-footer text-center my-primary-background">
+                <a href="#!" class="btn btn-outline-light btn-sm" ><i class="fa fa-thumbs-o-up"></i><span>10</span></a>                
+                <a href="show_post_details.jsp?post_id=<%= p.getPostId() %>" class="btn btn-outline-light btn-sm" >Read More</a>                
+                <a href="#!" class="btn btn-outline-light btn-sm" ><i class="fa fa-commenting-o"></i><span>20</span></a>                
 
             </div>
 

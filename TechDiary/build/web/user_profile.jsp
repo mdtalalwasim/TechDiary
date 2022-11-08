@@ -357,7 +357,7 @@
                             </div>
 
                             <div class="form-group">
-                                <input type="text" name="post_title" placeholder="Enter post Title" class="form-control" />
+                                <input type="text" name="post_title" placeholder="Enter post Title" class="form-control" required />
                             </div>
 
                             <div class="form-group">
