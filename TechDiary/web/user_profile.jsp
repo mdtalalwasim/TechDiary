@@ -45,6 +45,14 @@
                 clip-path: polygon(50% 0%, 79% 0, 100% 0, 100% 100%, 80% 96%, 51% 100%, 20% 97%, 0 100%, 0 0, 18% 0);
 
             }
+            
+            
+             /*bg pic*/
+            body{
+                background: url(pics/bgp.jpg);
+                background-size: cover;
+                background-attachment: fixed;
+            }
 
         </style>
 

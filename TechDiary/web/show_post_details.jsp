@@ -5,6 +5,7 @@
 --%>
 
 
+<%@page import="com.tech.diary.dao.UserDAO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.tech.diary.data.model.Category"%>
 <%
@@ -82,7 +83,12 @@
                 padding-top: 15px;
             }
 
-
+            /*bg pic*/
+            body{
+                background: url(pics/bgp.jpg);
+                background-size: cover;
+                background-attachment: fixed;
+            }
         </style>
 
 
@@ -91,7 +97,7 @@
 
 
 
-        
+
         <!--start navbar -->
 
         <nav class="navbar navbar-expand-lg navbar-dark  my-primary-background ">
@@ -164,7 +170,12 @@
                             <!--remind: row has 12 grid by default. so we divide 12grids into below 2div-->
                             <div class="row my-3 row-user">
                                 <div class="col-md-8">
-                                    <p class="post-user-info"><a href="#!">Wasim</a> posted :</p>
+
+                                    <%
+                                        UserDAO userDAO = new UserDAO(ConnectionProvider.getConnection());
+                                     %>
+
+                                     <p class="post-user-info"><a href="#!"><%= userDAO.getUserByUserId(post.getUserId()).getUserName() %></a> posted :</p>
                                 </div>
 
                                 <div class="col-md-4">
