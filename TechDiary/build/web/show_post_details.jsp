@@ -39,6 +39,7 @@
 <%@page import="com.tech.diary.data.model.Post"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page errorPage="error_page.jsp" %>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -58,11 +59,39 @@
 
             }
 
+            .post-title{
+                font-weight: 100;
+                font-size: 30px;
+            }
+            .post-content{
+                font-weight: 100;
+                font-size: 20px;
+            }
+            .post-date{
+                font-style: italic;
+                font-weight: bold;
+
+            }
+            .post-user-info{
+
+                font-size: 20px;
+            }
+
+            .row-user{
+                border: 1px solid #e2e2e2;
+                padding-top: 15px;
+            }
+
+
         </style>
 
 
     </head>
     <body>
+
+
+
+        
         <!--start navbar -->
 
         <nav class="navbar navbar-expand-lg navbar-dark  my-primary-background ">
@@ -127,25 +156,39 @@
                 <div class="col-md-8 offset-md-2">
                     <div class="card">
                         <div class="card-header my-primary-background text-white">
-                            <h4><%= post.getPostTitle()%></h4>
+                            <h4 class="post-title" ><%= post.getPostTitle()%></h4>
                         </div>  
                         <div class="card-body">
-                            <img class="card-img-top my-3" src="blog_pics/<%= post.getPostPic() %>" alt="Card image cap"/>
-                            <p><%= post.getPostContent()%></p>
+                            <img class="card-img-top my-3" src="blog_pics/<%= post.getPostPic()%>" alt="Card image cap"/>
+
+                            <!--remind: row has 12 grid by default. so we divide 12grids into below 2div-->
+                            <div class="row my-3 row-user">
+                                <div class="col-md-8">
+                                    <p class="post-user-info"><a href="#!">Wasim</a> posted :</p>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <p class="post-date"><%= post.getPostDate().toLocaleString()%></p>
+
+
+                                </div>
+                            </div>
+
+                            <p class="post-content"><%= post.getPostContent()%></p>
 
                             <br>
+                            <div class="post-code">    
+                                <pre>
+                                    <%= post.getPostCode()%>
+                                </pre>
+                            </div>
 
-                            <pre>
-                                <%= post.getPostCode()%>
-                            </pre>
-                            
-                            
-                            
+
                         </div>  
 
                         <div class="card-footer my-primary-background text-center">
                             <a href="#!" class="btn btn-outline-light btn-sm" ><i class="fa fa-thumbs-o-up"></i><span>10</span></a>                
-                            
+
                             <a href="#!" class="btn btn-outline-light btn-sm" ><i class="fa fa-commenting-o"></i><span>20</span></a>                
 
                         </div>    

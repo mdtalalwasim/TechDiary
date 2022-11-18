@@ -33,13 +33,17 @@
 
         for (Post p : allPosts) {
     %>
+    
+    
+
+ 
 
     <div class="col-md-6 mt-3">
         <div class="card">
             <img class="card-img-top" src="blog_pics/<%= p.getPostPic()%>" alt="Card image cap">
             <div class="card-body">
                 <b><%= p.getPostTitle()%></b>
-                <p><%= p.getPostContent()%></p>
+<!--                <p><%= p.getPostContent()%></p>-->
                 
 
             </div>
