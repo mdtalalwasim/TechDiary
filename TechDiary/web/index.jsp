@@ -21,16 +21,24 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <style>
             .banner_background{
-                /*clip-path: polygon(50% 0%, 100% 0, 100% 35%, 100% 100%, 78% 95%, 50% 100%, 21% 94%, 0 100%, 0% 35%, 0 0);*/
-                /*clip-path: polygon(50% 0%, 100% 0, 100% 44%, 100% 70%, 100% 100%, 71% 96%, 0 100%, 0 66%, 0 28%, 0 0);*/
-                /*clip-path: polygon(50% 0%, 85% 0, 100% 0, 100% 100%, 80% 98%, 45% 100%, 20% 98%, 0 100%, 0 0, 18% 0);*/
+               
                 clip-path: polygon(50% 0%, 79% 0, 100% 0, 100% 100%, 80% 96%, 51% 100%, 20% 97%, 0 100%, 0 0, 18% 0);
                 /*clip-path: polygon(50% 0%, 79% 0, 100% 0, 100% 100%, 80% 96%, 50% 81%, 20% 97%, 0 100%, 0 0, 18% 0);*/
 
 
             }
 
-        </style>    
+        </style>   
+        
+
+        <!-- customs css for this page -->
+        <style type="text/css">
+            .my-card {
+                box-shadow: 0px 0px 10px 1px #0097A7;
+                /*box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.3);*/
+            }
+        </style>
+        <!-- end of customs css for this page -->
     </head>
     <body>
 
@@ -39,7 +47,7 @@
 
 
         <!--create banner-->
-        <!--container-fluid cover full page. and container will leave space from left, and right.-->
+        <!--container-fluid-->
         <div class="container-fluid p-0 m-0"> 
             <div class="jumbotron bg-info text-white banner_background ">
                 <div class="container">
@@ -61,15 +69,15 @@
             </div>
 
         </div>
-        <!--end container-fluid cover full page. and container will leave space from left, and right.-->
+        <!--end container-fluid -->
 
 
         <div class="container">
             <div class="row mb-2">
                 <div class="col-md-4">
 
-                    <div class="card">
-                        <!--<img class="card-img-top" src="..." alt="Card image cap">-->
+                    <div class="card my-card">
+                        
                         <div class="card-body">
                             <h5 class="card-title">Java Programming</h5>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -79,8 +87,8 @@
                 </div>
                 <div class="col-md-4">
 
-                    <div class="card">
-                        <!--<img class="card-img-top" src="..." alt="Card image cap">-->
+                    <div class="card my-card">
+                        
                         <div class="card-body">
                             <h5 class="card-title">Python</h5>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -90,8 +98,8 @@
                 </div>
                 <div class="col-md-4">
 
-                    <div class="card">
-                        <!--<img class="card-img-top" src="..." alt="Card image cap">-->
+                    <div class="card my-card">
+                        
                         <div class="card-body">
                             <h5 class="card-title">ASP .Net</h5>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -113,7 +121,7 @@
             <div class="row mb-2">
                 <div class="col-md-4">
 
-                    <div class="card">
+                    <div class="card my-card">
                         <!--<img class="card-img-top" src="..." alt="Card image cap">-->
                         <div class="card-body">
                             <h5 class="card-title">Ruby on Rails</h5>
@@ -124,7 +132,7 @@
                 </div>
                 <div class="col-md-4">
 
-                    <div class="card">
+                    <div class="card my-card">
                         <!--<img class="card-img-top" src="..." alt="Card image cap">-->
                         <div class="card-body">
                             <h5 class="card-title">Golang</h5>
@@ -135,7 +143,47 @@
                 </div>
                 <div class="col-md-4">
 
-                    <div class="card">
+                    <div class="card my-card">
+                        <!--<img class="card-img-top" src="..." alt="Card image cap">-->
+                        <div class="card-body">
+                            <h5 class="card-title">Android</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a href="#" class="btn my-primary-background text-white">Read More</a>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+            </div>
+            <div class="row mb-2">
+                <div class="col-md-4">
+
+                    <div class="card my-card">
+                        <!--<img class="card-img-top" src="..." alt="Card image cap">-->
+                        <div class="card-body">
+                            <h5 class="card-title">Ruby on Rails</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a href="#" class="btn my-primary-background text-white">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+
+                    <div class="card my-card">
+                        <!--<img class="card-img-top" src="..." alt="Card image cap">-->
+                        <div class="card-body">
+                            <h5 class="card-title">Golang</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a href="#" class="btn my-primary-background text-white">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+
+                    <div class="card my-card">
                         <!--<img class="card-img-top" src="..." alt="Card image cap">-->
                         <div class="card-body">
                             <h5 class="card-title">Android</h5>
@@ -162,133 +210,6 @@
         <!--<br>-->
 
 
-<!--         Footer 
-        <footer class="page-footer font-small indigo my-primary-background">
-
-             Footer Links 
-            <div class="container text-center text-md-left">
-
-                 Grid row 
-                <div class="row">
-
-                     Grid column 
-                    <div class="col-md-3 mx-auto">
-
-                         Links 
-                        <h5 class="font-weight-bold text-uppercase mt-3 mb-4 text-white">Links</h5>
-
-                        <ul class="list-unstyled">
-                            <li>
-                                <a href="#!" class="text-white">Very long link 1</a>
-                            </li>
-                            <li>
-                                <a href="#!" class="text-white">Very long link 2</a>
-                            </li>
-                            <li>
-                                <a href="#!" class="text-white">Very long link 3</a>
-                            </li>
-                            <li>
-                                <a href="#!" class="text-white">Very long link 4</a>
-                            </li>
-                        </ul>
-
-                    </div>
-                     Grid column 
-
-                    <hr class="clearfix w-100 d-md-none">
-
-                     Grid column 
-                    <div class="col-md-3 mx-auto">
-
-                         Links 
-                        <h5 class="font-weight-bold text-uppercase mt-3 mb-4 text-white">Links</h5>
-
-                        <ul class="list-unstyled">
-                            <li>
-                                <a href="#!" class="text-white">Link 1</a>
-                            </li>
-                            <li>
-                                <a href="#!" class="text-white">Link 2</a>
-                            </li>
-                            <li>
-                                <a href="#!" class="text-white">Link 3</a>
-                            </li>
-                            <li>
-                                <a href="#!" class="text-white">Link 4</a>
-                            </li>
-                        </ul>
-
-                    </div>
-                     Grid column 
-
-                    <hr class="clearfix w-100 d-md-none">
-
-                     Grid column 
-                    <div class="col-md-3 mx-auto">
-
-                         Links 
-                        <h5 class="font-weight-bold text-uppercase mt-3 mb-4 text-white">Links</h5>
-
-                        <ul class="list-unstyled ">
-                            <li>
-                                <a href="#!" class="text-white" >Link 1</a>
-                            </li>
-                            <li>
-                                <a href="#!" class="text-white">Link 2</a>
-                            </li>
-                            <li>
-                                <a href="#!" class="text-white">Link 3</a>
-                            </li>
-                            <li>
-                                <a href="#!" class="text-white">Link 4</a>
-                            </li>
-                        </ul>
-
-                    </div>
-                     Grid column 
-
-                    <hr class="clearfix w-100 d-md-none">
-
-                     Grid column 
-                    <div class="col-md-3 mx-auto">
-
-                         Links 
-                        <h5 class="font-weight-bold text-uppercase mt-3 mb-4 text-white">Links</h5>
-
-                        <ul class="list-unstyled">
-                            <li>
-                                <a href="#!" class="text-white">Link 1</a>
-                            </li>
-                            <li>
-                                <a href="#!" class="text-white">Link 2</a>
-                            </li>
-                            <li>
-                                <a href="#!" class="text-white">Link 3</a>
-                            </li>
-                            <li>
-                                <a href="#!" class="text-white">Link 4</a>
-                            </li>
-                        </ul>
-
-                    </div>
-                     Grid column 
-
-                </div>
-                 Grid row 
-
-            </div>
-             Footer Links 
-
-             Copyright 
-            <div class="footer-copyright text-center py-3 text-white">© 2022 Copyright:
-                <a href="https://github.com/mdtalalwasim" target="_blank" style="color: black"><strong> Md.Talal Wasim</strong></a>
-            </div>
-             Copyright 
-
-        </footer>
-         Footer -->
-
-
 
 
 
@@ -311,15 +232,9 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
         <script src="js/myjs.js" type="text/javascript"></script>
 
-
-        <!-- Link javaScript Section-->
-
-        <!--check whether jquery working for this page or not!--> 
-        <!--        <script>
-                    $(document).ready(function(){
-                        alert("Hello guys! I am query alert()...");
-                    }); 
-                </script>-->
-
+        <!-- footer -->
+	<%@include file="footer.jsp"%>
+	<!-- end footer -->
+      
     </body>
 </html>

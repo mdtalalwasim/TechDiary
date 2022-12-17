@@ -109,10 +109,10 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="user_profile.jsp"><span class="fa fa-rocket"></span> My TechDiary<span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="user_profile.jsp"><span class="fa fa-home"></span> Home<span class="sr-only">(current)</span></a>
                     </li>
 
-                    <li class="nav-item dropdown">
+<!--                    <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <span class="fa fa-book"></span>    Categories
                         </a>
@@ -123,15 +123,15 @@
                             <a class="dropdown-item" href="#">Algorithms & Data Structure</a>
                         </div>
                     </li>
-                    <!--            <li class="nav-item">
+                                <li class="nav-item">
                                     <a class="nav-link " href="#">More...</a>
-                                </li>-->
+                                </li>
 
                     <li class="nav-item">
                         <a class="nav-link" href="#"><span class="fa fa-address-book-o"></span> Contact</a>
-                    </li>
+                    </li>-->
                     <li class="nav-item">
-                        <a class="nav-link" href="#" data-toggle="modal" data-target="#add-post-model"><span class="fa fa-vcard-o"></span> Create Post</a>
+                        <a class="nav-link active" href="#" data-toggle="modal" data-target="#add-post-model"><span class="fa fa-vcard-o"></span> Create Post</a>
                     </li>
 
 

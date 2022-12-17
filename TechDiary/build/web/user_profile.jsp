@@ -45,9 +45,9 @@
                 clip-path: polygon(50% 0%, 79% 0, 100% 0, 100% 100%, 80% 96%, 51% 100%, 20% 97%, 0 100%, 0 0, 18% 0);
 
             }
-            
-            
-             /*bg pic*/
+
+
+            /*bg pic*/
             body{
                 background: url(pics/bgp.jpg);
                 background-size: cover;
@@ -55,6 +55,8 @@
             }
 
         </style>
+
+
 
     </head>
     <body>
@@ -70,29 +72,29 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#"><span class="fa fa-rocket"></span> Trend <span class="sr-only">(current)</span></a>
+                        <a class="nav-link active" href="#"><span class="fa fa-home"></span> Home <span class="sr-only">(current)</span></a>
                     </li>
 
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="fa fa-book"></span>    Categories
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Programming Language</a>
-                            <a class="dropdown-item" href="#">Projects</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Algorithms & Data Structure</a>
-                        </div>
-                    </li>
+                    <!--                    <li class="nav-item dropdown">
+                                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <span class="fa fa-book"></span>    Categories
+                                            </a>
+                                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                                <a class="dropdown-item" href="#">Programming Language</a>
+                                                <a class="dropdown-item" href="#">Projects</a>
+                                                <div class="dropdown-divider"></div>
+                                                <a class="dropdown-item" href="#">Algorithms & Data Structure</a>
+                                            </div>
+                                        </li>-->
                     <!--            <li class="nav-item">
                                     <a class="nav-link " href="#">More...</a>
                                 </li>-->
 
+                    <!--                    <li class="nav-item">
+                                            <a class="nav-link" href="#"><span class="fa fa-address-book-o"></span> Contact</a>
+                                        </li>-->
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><span class="fa fa-address-book-o"></span> Contact</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" data-toggle="modal" data-target="#add-post-model"><span class="fa fa-vcard-o"></span> Create Post</a>
+                        <a class="nav-link active" href="#" data-toggle="modal" data-target="#add-post-model"><span class="fa fa-vcard-o"></span> Create Post</a>
                     </li>
 
 
@@ -101,11 +103,11 @@
 
                 <ul class="navbar-nav mr-right">
                     <li class="nav-item">
-                        <a class="nav-link" href="#!" data-toggle="modal" data-target="#userProfile-modal"><span class="fa fa-user-circle"></span> <%= user.getUserName()%></a>
+                        <a class="nav-link active" href="#!" data-toggle="modal" data-target="#userProfile-modal"><span class="fa fa-user-circle"></span> <%= user.getUserName()%></a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="LogoutServlet"><span class="fa fa-user-circle-o "></span> Logout</a>
+                        <a class="nav-link active" href="LogoutServlet"><span class="fa fa-user-circle-o "></span> Logout</a>
                     </li>
                 </ul>
 
@@ -151,30 +153,29 @@
                 <div class="row mt-4">
                     <!--first col-->
                     <div class="col-md-4">
-                        
+
                         <!--show categories in user profile main page-->
-                        
+
                         <div class="list-group">
                             <!--get all categories list form database-->
-                            <a href="#" onclick="getPosts(0,this)" class="selectedActiveCategoryLinkColorBlue list-group-item list-group-item-action active">All Post</a> <!--[active] attribute in class="... active" means this is selected and selected category color will be blue, if we remove 'active' attribute from this line, then blue color selected will disappear-->
+                            <a href="#" onclick="getPosts(0, this)" class="selectedActiveCategoryLinkColorBlue list-group-item list-group-item-action active">All Post</a> <!--[active] attribute in class="... active" means this is selected and selected category color will be blue, if we remove 'active' attribute from this line, then blue color selected will disappear-->
                             <!-- getPosts(0,this) here this is the reference of which link/category or category Name you actually clicked [for keep tracking which link you clicked] -->
-                            
+
                             <!-- to get "active" link in categories we declare a class="selectedActiveCategoryLinkColorBlue"  -->
-                            <%  
-                                //categories print/show in User Profile main dashboard or page
+                            <%                                //categories print/show in User Profile main dashboard or page
                                 PostDAO objPostDAO = new PostDAO(ConnectionProvider.getConnection());
                                 ArrayList<Category> catList = objPostDAO.getAllCategories();
-                                
+
                                 for (Category c : catList) {
- 
+
                             %>
-                            <a href="#" onclick="getPosts(<%= c.getCategoriesId() %>,this)" class="selectedActiveCategoryLinkColorBlue list-group-item list-group-item-action"><%= c.getCategoriesName() %></a>
+                            <a href="#" onclick="getPosts(<%= c.getCategoriesId()%>, this)" class="selectedActiveCategoryLinkColorBlue list-group-item list-group-item-action"><%= c.getCategoriesName()%></a>
                             <!-- getPosts( ,this) here this is the reference of which link/category or category Name you actually clicked [for keep tracking which link you clicked] -->
                             <%
                                 }
                             %>
 
-                            
+
                         </div> 
 
 
@@ -184,17 +185,18 @@
                     <!--2nd col-->
                     <div class="col-md-8">
                         <!--show All post-->
-                        
+
                         <div class="container text-center" id="loader">
                             <i class="fa fa-refresh fa-3x fa-spin"></i>
                             <h3 class="mt-2">loading...</h3>
-                            
+
                         </div>
-                        
+
                         <div class="container-fluid" id="load-all-post-container">
                             <!--"load_all_posts.jsp" page contents will show here-->
                         </div>
-                        
+
+
 
 
 
@@ -415,28 +417,28 @@
 
         <!--script for user profile section edit button toggle-->
         <script>
-            $(document).ready(function () {
+                                $(document).ready(function () {
 
-                let editStatusOfUserProfile = false;//by default we assumet it false.
+                                    let editStatusOfUserProfile = false;//by default we assumet it false.
 
-                //toggle code for user profile edit
-                $("#edit-userProfile-btn").click(function () {
+                                    //toggle code for user profile edit
+                                    $("#edit-userProfile-btn").click(function () {
 //                   alert("Edit button Clicked!");
-                    if (editStatusOfUserProfile == false) {
-                        $("#profileDetails").hide();
-                        $("#profileEdit").show();
-                        editStatusOfUserProfile = true;
-                        $(this).text("Back");
-                    } else {
-                        $("#profileDetails").show();
-                        $("#profileEdit").hide();
-                        editStatusOfUserProfile = false;
-                        $(this).text("EDIT");
-                    }
+                                        if (editStatusOfUserProfile == false) {
+                                            $("#profileDetails").hide();
+                                            $("#profileEdit").show();
+                                            editStatusOfUserProfile = true;
+                                            $(this).text("Back");
+                                        } else {
+                                            $("#profileDetails").show();
+                                            $("#profileEdit").hide();
+                                            editStatusOfUserProfile = false;
+                                            $(this).text("EDIT");
+                                        }
 
-                });
-                //end of toggle code for user profile edit
-            });
+                                    });
+                                    //end of toggle code for user profile edit
+                                });
         </script>
         <!--end ofscript for user profile section edit button toggle-->
 
@@ -490,24 +492,24 @@
         </script>
 
         <!--end of create post js code-->
-        
-        
+
+
         <!--load all post-->
         <script>
-            function getPosts(categoryId, refVariableOFClickedLink){ //"refVariableOFClickedLink" this is reference or variable of which link you clicked or which link is active or selected[show in bule color].
-                
+            function getPosts(categoryId, refVariableOFClickedLink) { //"refVariableOFClickedLink" this is reference or variable of which link you clicked or which link is active or selected[show in bule color].
+
                 //show loader before ajax request, means when click on categories for showing post "loader is visible."
                 $("#loader").show();
                 $("#load-all-post-container").hide();
                 $(".selectedActiveCategoryLinkColorBlue").removeClass("active");//remove active link[selected category] from categories list or category name
                 //["active" / blue color selected link will remove when this line of code executed]
-                
-                
+
+
                 $.ajax({
-                   url:"load_all_posts.jsp",
-                   data: {catId:categoryId}, //key:value -> here, catId go to server end. [this key -> "catId" will go to "load_all_posts.jsp" page]
-                   //if catId=0 then fetch all category Post, if catId>0 then fetch "catId"(#number) category post
-                   success: function (data, textStatus, jqXHR) {
+                    url: "load_all_posts.jsp",
+                    data: {catId: categoryId}, //key:value -> here, catId go to server end. [this key -> "catId" will go to "load_all_posts.jsp" page]
+                    //if catId=0 then fetch all category Post, if catId>0 then fetch "catId"(#number) category post
+                    success: function (data, textStatus, jqXHR) {
                         console.log(data);
                         $("#loader").hide();
                         $("#load-all-post-container").show();
@@ -515,27 +517,27 @@
                         $(refVariableOFClickedLink).addClass("active"); //put or add "active" class mark[which is blue color] in selected category or selected link
                         //clicked link or selected link/category  reference is now in "rerefVariableOFClickedLink" variable
                     }
-            
-               });
-                
+
+                });
+
             }
-            
-            
-            $(document).ready(function (e){
-               
-               //alert("loading all post"); 
-               //when document will ready this function will call automatically.
-               
-               let allPostSelectedLinkBlueColorRef = $(".selectedActiveCategoryLinkColorBlue")[0];  
-               getPosts(0, allPostSelectedLinkBlueColorRef);//call getPost(); and pass '0' zero value by default and 
-               //also pass the reference of selected active link which is -> "All Post" with blue color selected/active link .
-               // pass "0"/zero means, when user login their profile they can see all post by default
-               //after that if they click any category then we show them that specific category post only.
-               
-               
+
+
+            $(document).ready(function (e) {
+
+                //alert("loading all post"); 
+                //when document will ready this function will call automatically.
+
+                let allPostSelectedLinkBlueColorRef = $(".selectedActiveCategoryLinkColorBlue")[0];
+                getPosts(0, allPostSelectedLinkBlueColorRef);//call getPost(); and pass '0' zero value by default and 
+                //also pass the reference of selected active link which is -> "All Post" with blue color selected/active link .
+                // pass "0"/zero means, when user login their profile they can see all post by default
+                //after that if they click any category then we show them that specific category post only.
+
+
             });
         </script>
-        
+
         <!--end of load all post-->
 
 

@@ -3,6 +3,15 @@
 <%@page import="com.tech.diary.utility.helper.ConnectionProvider"%>
 <%@page import="com.tech.diary.dao.PostDAO"%>
 
+<!-- customs css for this page -->
+        <style type="text/css">
+            .my-card {
+                box-shadow: 0px 0px 10px 1px maroon;
+                /*box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.3);*/
+            }
+        </style>
+        <!-- end of customs css for this page -->
+
 <div class="row">
 
     <%
@@ -10,7 +19,7 @@
         PostDAO objPostDAO = new PostDAO(ConnectionProvider.getConnection());
 
         //here, first -> fetch the "key" value -> "catId" value which is coming from "user_profile.jsp" -> 'load all post' javaScript section
-        //
+        
         int categoryID = Integer.parseInt(request.getParameter("catId")); //here, "catId" is "key" which is coming user_profile.jsp page script section
 
         List<Post> allPosts = null; //by default set allPost to null.
@@ -34,12 +43,12 @@
         for (Post p : allPosts) {
     %>
     
-    
+     
 
  
 
     <div class="col-md-6 mt-3">
-        <div class="card">
+        <div class="card my-card">
             <img class="card-img-top" src="blog_pics/<%= p.getPostPic()%>" alt="Card image cap">
             <div class="card-body">
                 <b><%= p.getPostTitle()%></b>

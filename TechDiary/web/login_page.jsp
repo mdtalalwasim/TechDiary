@@ -30,6 +30,16 @@
             }
 
         </style>
+        
+        <!-- customs css for this page -->
+        <style type="text/css">
+            .my-card {
+/*                box-shadow: 0px 0px 10px 1px #0097A7;*/
+/*                box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.3);*/
+                box-shadow: 3px 0px 10px 0px rgba(0,0,0,10);
+            }
+        </style>
+        <!-- end of customs css for this page -->
 
 
     </head>
@@ -43,7 +53,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-4 offset-md-4">
-                        <div class="card">
+                        <div class="card my-card">
 
                             <div class="card-header text-center my-primary-background text-white">
                                 <!--<br>-->
@@ -97,9 +107,11 @@
                                                                             <input type="checkbox" class="form-check-input" id="exampleCheck1">
                                                                             <label class="form-check-label" for="exampleCheck1">Check me out</label>
                                                                         </div>-->
-                                    <button type="submit" class="btn my-primary-background text-white mt-2">Submit</button>
+                                    <button type="submit" class="btn my-primary-background text-white mt-2">Login</button>
 
                                 </form>
+                                <br>Don't have an account? <a href="registration_page.jsp"
+                                                              class="text-decoration-none">create one</a>
                                 <!-- end login form-->
                             </div>
                             <div class="">

@@ -25,6 +25,16 @@
             }
 
         </style>
+        
+        <!-- customs css for this page -->
+        <style type="text/css">
+            .my-card {
+/*                box-shadow: 0px 0px 10px 1px #0097A7;*/
+/*                box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.3);*/
+                box-shadow: 3px 0px 10px 0px rgba(0,0,0,10);
+            }
+        </style>
+        <!-- end of customs css for this page -->
 
 
 
@@ -35,16 +45,16 @@
         <%@include file="navbar_simple.jsp" %>
 
         <!--main content of this page-->
-        <main class="my-primary-background banner_background p-5">
+        <main class="my-primary-background  p-5">
             <div class="container">
                 <div class="col-md-6 offset-md-3 ">
-                    <div class="card ">
+                    <div class="card my-card">
 
                         <div class="card-header text-center my-primary-background text-white"><span class="fa fa-user-plus fa-2x"></span>
                             <br>
                             Register here
                         </div>
-                        <div class="card-body ">
+                        <div class="card-body">
 
                             <!-- start Register form-->
                             <form id="my-registration-form" action="UserRegisterServlet" method="POST">
@@ -89,7 +99,7 @@
                                     <h4>Please wait...</h4>
                                 </div>
 
-                                <button id="mysubmit-btn" type="submit" class="btn my-primary-background text-white mt-2">Submit</button>
+                                <button id="mysubmit-btn" type="submit" class="btn my-primary-background text-white mt-2">Register</button>
 
                             </form>
                             <!-- end Register form-->
